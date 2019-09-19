@@ -1,0 +1,143 @@
+.printonly {
+  display: none;
+  @media print {
+    display: unset;
+  }
+}
+@media print {
+  .noprint {
+    display: none !important;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  align-items: center;
+  box-sizing: border-box;
+  padding: 3rem 8rem 1.25rem $gutter-left;
+  max-width: 680px;
+  box-sizing: border-box;
+  
+  &:first-of-type {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    
+    @media print {
+      display: none;
+    }
+  }
+
+  h1 {
+    margin: -0.5rem 0 0 1rem;
+  }
+  h2 {
+    margin: 0.5rem 0 0 1rem;
+  }
+}
+
+main {
+  display: grid;
+  grid-template-columns: 0 1fr auto auto;
+  grid-gap: 0.5rem 1rem;
+  align-items: baseline;
+  padding: 1.5rem $gutter-right 1.5rem $gutter-left;
+  max-width: 680px;
+  box-sizing: border-box;
+
+  section {
+    grid-column: 2;
+    grid-row-end: span 3;
+    &.skills {
+      grid-row-end: span 5;
+    }
+  }
+  h2 {
+    margin: 1.15rem 0 0 0;
+  }
+  h3 {
+    margin: 0.25rem 0 0 0;
+  }
+  h4 {
+    margin: 0.4rem 0 0 0;
+  }
+  p {
+    grid-column: 2 / span 3;
+    margin: 0;
+    font-weight: $subtle-weight;
+  }
+
+  .label {
+    grid-column: 1;
+    transform: translate(-0.65rem, 1rem) rotate(90deg);
+    transform-origin: left;
+    align-self: start;
+    &.skillslabel {
+      transform: translate(-0.65rem, 0.5rem) rotate(90deg);
+    }
+  }
+
+  .skills {
+    align-self: start;
+    grid-column: 2;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+
+    .skill {
+      margin: 0.5rem 1rem 0 0;
+    }
+  }
+  
+  small {
+    grid-column: 4;
+  }
+  .icon {
+    grid-column: 3;
+    justify-self: center;
+    margin-left: 0.5rem;
+  }
+  .link {
+    grid-column: 4;
+  }
+  .navlink {
+    z-index: 10;
+  }
+  @for $row from 1 to 5 {
+    .row-#{$row} {
+      grid-row: $row;
+    }
+  }
+  .row-1 {
+    margin-top: 1rem;
+  }
+
+  &::before {
+    content: '';
+    grid-column: 3 / span 2;
+    grid-row: 1 / span 4;
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+    margin: 0 -0.5rem;
+    height: calc(100% + 1.25rem);
+    width: calc(100% + 0.75rem);
+    z-index: 0;
+  }
+
+  hr {
+    grid-column: 1 / span 4;
+    margin: 1.25rem (-1 * $gutter-right) 0 (-1 * $gutter-left);
+  }
+}

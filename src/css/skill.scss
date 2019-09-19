@@ -1,0 +1,16 @@
+@import "constants";
+
+.skill {
+  &.high {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  &.mid {
+    font-weight: 650;
+    font-size: 1.125rem;
+  }
+  &.low {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+}
