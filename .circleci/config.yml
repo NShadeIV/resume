@@ -11,7 +11,7 @@ executors:
       - image: circleci/node:10.13.0-jessie
     working_directory: ~
 jobs:
-  build:
+  build-test-deploy:
     executor: node
     steps:
       - checkout
@@ -33,11 +33,6 @@ jobs:
       - run:
           name: Run all tests
           command: yarn test --passWithNoTests
-      
-  deploy:
-    executor: node
-    steps:
-      - checkout
       # https://circleci.com/docs/2.0/deployment-integrations/#aws-s3-orb
       - aws-s3/sync:
           from: build
@@ -57,10 +52,7 @@ workflows:
   version: 2
   build-test-deploy:
     jobs:
-      - build
-      - deploy:
-          requires:
-            - build
+      - build-test-deploy:
           filters:
             branches:
               only: master
