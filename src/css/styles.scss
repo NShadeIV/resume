@@ -16,7 +16,7 @@ body {
   width: 100%;
 }
 .app::before {
-  background: $subtle-color url(background.jpg);
+  background: $subtle-color url(/background.jpg);
   background-size: 360px;
   background-position: center;
   background-attachment: fixed;
@@ -34,7 +34,7 @@ body {
 
 header {
   position: relative;
-  background: right top 30% / auto calc(100% + 1px) no-repeat $text-color url(photo.2.jpg);
+  background: right top 30% / auto calc(100% + 1px) no-repeat $text-color url(/photo.2.jpg);
   background-clip: border-box;
   border-bottom: 1px dashed $invert-subtle-color;
   color: white;

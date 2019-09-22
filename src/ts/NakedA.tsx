@@ -1,10 +1,11 @@
 import React from "react";
 
-export const NakedA = ({ href, children, ...props }) =>
-  href ? (
-    <a href={href} {...props}>
-      {children}
-    </a>
+type AnchorProps = JSX.IntrinsicElements["a"];
+type SpanProps = JSX.IntrinsicElements["span"];
+
+export const NakedA = (props: AnchorProps | SpanProps) =>
+  "href" in props ? (
+    <a {...props}>{props.children}</a>
   ) : (
-    <span {...props}>{children}</span>
+    <span {...props}>{props.children}</span>
   );

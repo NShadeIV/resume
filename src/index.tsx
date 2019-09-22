@@ -77,17 +77,6 @@ const App = () => {
 
         <hr />
 
-        <Section
-          title="Computer Science, B.S."
-          subtitle="Rochester Institute of Technology"
-          subUrl="https://www.rit.edu/computing"
-          sidebar="Math, minor"
-          loc="Rochester, NY"
-          locUrl="https://www.google.com/maps/place/Rochester+Institute+of+Technology/@43.0845933,-77.6765332,17z/data=!3m1!4b1!4m5!3m4!1s0x89d14c603a147e55:0xbe7eb31ed5e22c03!8m2!3d43.0845894!4d-77.6743445"
-        />
-
-        <hr />
-
         <div className="label">Experience</div>
         <Section
           title="Glassdoor"
@@ -140,6 +129,18 @@ const App = () => {
             synchronization.
           </p>
         </Section>
+
+        <hr />
+
+        <div className="label">Edu</div>
+        <Section
+          title="Computer Science, B.S."
+          subtitle="Rochester Institute of Technology"
+          subUrl="https://www.rit.edu/computing"
+          sidebar="Math, minor"
+          loc="Rochester, NY"
+          locUrl="https://www.google.com/maps/place/Rochester+Institute+of+Technology/@43.0845933,-77.6765332,17z/data=!3m1!4b1!4m5!3m4!1s0x89d14c603a147e55:0xbe7eb31ed5e22c03!8m2!3d43.0845894!4d-77.6743445"
+        />
       </main>
     </div>
   );
