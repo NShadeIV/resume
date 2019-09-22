@@ -5,59 +5,39 @@
 version: 2.1
 orbs:
   aws-s3: circleci/aws-s3@1.0.11
+executors:
+  node:
+    docker:
+      - image: circleci/node:10.13.0-jessie
+    working_directory: ~
 jobs:
   build:
-    docker:
-      # specify the version you desire here
-      - image: circleci/node:10.13.0-jessie
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
-
-    working_directory: ~
-
+    executor: node
     steps:
       - checkout
-
       - restore_cache:
           name: Restore Yarn Package Cache
           keys:
-            - yarn-packages-{{ checksum "yarn.lock" }}
-            
+            - yarn-packages-{{ checksum "yarn.lock" }}   
       - run:
           name: Install Dependencies
-          command: yarn install --frozen-lockfile
-          
+          command: yarn install --frozen-lockfile 
       - save_cache:
           name: Save Yarn Package Cache
           key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
-            - ~/.cache/yarn
-            
+            - ~/.cache/yarn 
       - run:
           name: Build
           command: yarn build
-
-  test:
-    docker:
-      - image: circleci/node:10.13.0-jessie
-    working_directory: ~
-    steps:
-      - checkout
-      
       - run:
           name: Run all tests
           command: yarn test
       
   deploy:
-    docker:
-      - image: circleci/node:10.13.0-jessie
-    working_directory: ~
+    executor: node
     steps:
       - checkout
-      
       # https://circleci.com/docs/2.0/deployment-integrations/#aws-s3-orb
       - aws-s3/sync:
           from: build
