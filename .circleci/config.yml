@@ -32,7 +32,7 @@ jobs:
           command: yarn build
       - run:
           name: Run all tests
-          command: yarn test
+          command: yarn test --passWithNoTests
       
   deploy:
     executor: node
