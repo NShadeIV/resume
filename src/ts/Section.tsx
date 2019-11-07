@@ -37,10 +37,10 @@ export const Section = ({
         {tertitle && <h4>{tertitle}</h4>}
       </section>
       {sidebar && <small>{sidebar}</small>}
-      <IconLink url={locUrl} icon="fas fa-map-marker-alt">
+      <IconLink url={locUrl} icon="fas fa-map-marker-alt" alt="location">
         {loc}
       </IconLink>
-      {dates && <IconLink icon="fas fa-calendar-alt">{dates}</IconLink>}
+      {dates && <IconLink icon="fas fa-calendar-alt" alt="dates">{dates}</IconLink>}
       {children}
     </>
   );

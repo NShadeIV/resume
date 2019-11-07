@@ -45,6 +45,7 @@ const App = () => {
         <IconLink
           url="https://www.linkedin.com/in/andrewnfabiny/"
           icon="fab fa-linkedin"
+          alt="LinkedIn"
           className={"navlink row-" + navLinkRow++}
         >
           /andrewnfabiny
@@ -52,6 +53,7 @@ const App = () => {
         <IconLink
           url="mailto:andrew.n.fabiny@gmail.com"
           icon="fas fa-envelope"
+          alt="email address"
           className={"navlink row-" + navLinkRow++}
         >
           andrew.n.fabiny
@@ -61,6 +63,7 @@ const App = () => {
         <IconLink
           url="tel:+14404970640"
           icon="fas fa-phone-alt"
+          alt="phone number"
           className={"navlink row-" + navLinkRow++}
         >
           +1.440.497.0640
@@ -68,6 +71,7 @@ const App = () => {
         <IconLink
           url="https://www.google.com/maps/place/Cleveland,+OH"
           icon="fas fa-map-marker-alt"
+          alt="current location"
           className={"navlink row-" + navLinkRow++}
         >
           Cleveland, OH
