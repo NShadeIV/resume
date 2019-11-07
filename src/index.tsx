@@ -14,8 +14,6 @@ const App = () => {
       <Header />
       <Header />
 
-      <hr className="printonly" />
-
       <main>
         <div className="label skillslabel">Skills</div>
         <section className="skills">

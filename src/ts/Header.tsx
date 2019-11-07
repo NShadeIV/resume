@@ -6,5 +6,6 @@ export const Header = () => (
       <h1>Andrew&nbsp;N. Fabiny</h1>
       <h2>Web Developer</h2>
     </div>
+    <hr />
   </header>
 );
