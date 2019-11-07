@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { hydrate, render } from "react-dom";
 
 import "./css/index.scss";
 import { Header } from "./ts/Header";
@@ -147,4 +147,8 @@ const App = () => {
 };
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+if (rootElement && rootElement.hasChildNodes()) {
+  hydrate(<App />, rootElement);
+} else {
+  render(<App />, rootElement);
+}
