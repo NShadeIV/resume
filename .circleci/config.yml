@@ -1,58 +1,97 @@
-# Javascript Node CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
-#
-version: 2.1
-orbs:
-  aws-s3: circleci/aws-s3@1.0.11
-executors:
-  node:
-    docker:
-      - image: circleci/node:10.13.0-jessie
-    working_directory: ~
+version: 2
 jobs:
   build-test-deploy:
-    executor: node
+    docker:
+    - image: circleci/node:12
     steps:
-      - checkout
-      - restore_cache:
-          name: Restore Yarn Package Cache
-          keys:
-            - yarn-packages-{{ checksum "yarn.lock" }}   
-      - run:
-          name: Install Dependencies
-          command: yarn install --frozen-lockfile 
-      - save_cache:
-          name: Save Yarn Package Cache
-          key: yarn-packages-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/.cache/yarn 
-      - run:
-          name: Build
-          command: yarn build
-      - run:
-          name: Run all tests
-          command: yarn test --passWithNoTests
-      # https://circleci.com/docs/2.0/deployment-integrations/#aws-s3-orb
-      - aws-s3/sync:
-          from: build
-          to: 's3://www.andrewnfabiny.com'
-          # excluding all files without a "." in them
-          # because they are likely redirects and need
-          # preserve metadata
-          arguments: |
+    - checkout
+    - restore_cache:
+        name: Restore Yarn Package Cache
+        keys:
+        - yarn-packages-{{ checksum "yarn.lock" }}
+    - run:
+        name: Install Dependencies
+        command: yarn install --frozen-lockfile
+    - save_cache:
+        name: Save Yarn Package Cache
+        key: yarn-packages-{{ checksum "yarn.lock" }}
+        paths:
+        - ~/.cache/yarn
+    - run:
+        name: Install Headless Chrome dependencies
+        command: |
+          sudo apt-get install -yq \
+          gconf-service libasound2 libatk1.0-0 libatk-bridge2.0-0 libc6 libcairo2 libcups2 libdbus-1-3 \
+          libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 \
+          libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 \
+          libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates \
+          fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget
+    - run:
+        name: Build
+        command: yarn build
+    - run:
+        name: Run all tests
+        command: yarn test --passWithNoTests
+    - run:
+        name: Install AWS CLI
+        command: |
+          export PIP=$(which pip pip3 | head -1)
+          if [[ -n $PIP ]]; then
+            if which sudo > /dev/null; then
+              sudo $PIP install awscli --upgrade
+            else
+              # This installs the AWS CLI to ~/.local/bin. Make sure that ~/.local/bin is in your $PATH.
+              $PIP install awscli --upgrade --user
+            fi
+          elif [[ $(which unzip curl | wc -l) -eq 2 ]]; then
+            cd
+            curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+            unzip awscli-bundle.zip
+            if which sudo > /dev/null; then
+              sudo ~/awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+            else
+              # This installs the AWS CLI to the default location (~/.local/lib/aws) and create a symbolic link (symlink) at ~/bin/aws. Make sure that ~/bin is in your $PATH.
+              awscli-bundle/install -b ~/bin/aws
+            fi
+            rm -rf awscli-bundle*
+            cd -
+          else
+            echo "Unable to install AWS CLI. Please install pip."
+            exit 1
+          fi
+    - run:
+        name: Configure AWS Access Key ID
+        command: |
+          aws configure set aws_access_key_id \
+          $AWS_ACCESS_KEY_ID \
+          --profile default
+    - run:
+        name: Configure AWS Secret Access Key
+        command: |
+          aws configure set aws_secret_access_key \
+          $AWS_SECRET_ACCESS_KEY \
+          --profile default
+    - run:
+        name: Configure AWS default region
+        command: |
+          aws configure set region $AWS_REGION \
+          --profile default
+    - deploy:
+        name: Deploy to S3
+        command: |+
+          aws s3 sync \
+            build s3://www.andrewnfabiny.com --delete \
             --acl public-read \
-            --cache-control "max-age=86400" \
-            --exclude "*" \
-            --include "*.*" \
-            --include ".*"
-          overwrite: true
+          --cache-control "max-age=86400" \
+          --exclude "*" \
+          --include "*.*" \
+          --include ".*"
 
 workflows:
   version: 2
   build-test-deploy:
     jobs:
-      - build-test-deploy:
-          filters:
-            branches:
-              only: master
+    - build-test-deploy:
+        filters:
+          branches:
+            only: master
