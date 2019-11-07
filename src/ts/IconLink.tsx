@@ -16,11 +16,11 @@ export const IconLink = ({
 }) => {
   return (
     <>
-      <NakedA href={url} className={"icon " + className} target="_blank">
+      <NakedA href={url} className={"icon " + className}>
         <i className={icon} />
         <span className="hidden">{alt}</span>
       </NakedA>
-      <NakedA href={url} className={"link " + className} target="_blank">
+      <NakedA href={url} className={"link " + className}>
         {children}
       </NakedA>
     </>
