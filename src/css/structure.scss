@@ -85,22 +85,13 @@ main {
     transform-origin: left;
     align-self: start;
     &.skillslabel {
-      transform: translate(-0.75rem, 0) rotate(90deg);
+      transform: translate(-0.75rem, -0.25rem) rotate(90deg);
     }
   }
 
   .skills {
     align-self: start;
     grid-column: 2;
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: baseline;
-
-    .skill {
-      margin: 0 1rem 0.5rem 0;
-    }
   }
   
   small {

@@ -3,11 +3,11 @@ import { hydrate, render } from "react-dom";
 
 import "./css/index.scss";
 import { Header } from "./ts/Header";
-import { Skill } from "./ts/Skill";
 import { IconLink } from "./ts/IconLink";
 import { Section } from "./ts/Section";
 
 const App = () => {
+  enum Skill { CATEGORY, STRONG, REGULAR };
   let navLinkRow = 1;
   return (
     <div className="app">
@@ -18,28 +18,55 @@ const App = () => {
         <div className="label skillslabel">Skills</div>
         <section className="skills">
           {Object.entries({
-            Java: 5 / 5,
-            JavaScript: 5 / 5,
-            CSS: 5 / 5,
-            SQL: 5 / 5,
-            "React.js": 3 / 5,
-            PHP: 3 / 5,
-            Redux: 3 / 5,
-            TypeScript: 2 / 5,
-            NPM: 2 / 5,
-            SEO: 4 / 5,
-            i18n: 4 / 5,
-            SASS: 5 / 5,
-            REST: 4 / 5,
-            Redis: 4 / 5,
-            RabbitMQ: 3 / 5,
-            Agile: 4 / 5,
-            SOA: 3 / 5
-          })
-            .sort(([k1, v1], [k2, v2]) => v2 - v1 || k1.localeCompare(k2))
-            .map(([key, value]) => (
-              <Skill name={key} score={value} />
-            ))}
+            "Front-end": Skill.CATEGORY,
+            
+            "Javascript": Skill.STRONG,
+            "Typescript": Skill.REGULAR,
+            "React Hooks": Skill.REGULAR,
+            "jQuery": Skill.REGULAR,
+            "Redux": Skill.REGULAR,
+            
+            "CSS": Skill.STRONG,
+            "SCSS": Skill.REGULAR,
+            "Responsive Design": Skill.REGULAR,
+            
+            "Semantic HTML": Skill.REGULAR,
+            "i18n": Skill.REGULAR,
+            "SEO": Skill.REGULAR,
+            "GTM": Skill.REGULAR,
+
+            "NPM": Skill.REGULAR,
+            "Yarn": Skill.REGULAR,
+
+
+            "Back-end": Skill.CATEGORY,
+
+            "Java": Skill.STRONG,
+            "PHP": Skill.REGULAR,
+
+            "REST": Skill.REGULAR,
+            "Redis": Skill.REGULAR,
+            "RabbitMQ": Skill.REGULAR,
+
+            "SQL": Skill.STRONG,
+            "MSSQL T-SQL": Skill.REGULAR,
+            "Oracle PL/SQ": Skill.REGULAR,
+
+
+            "DevOps": Skill.CATEGORY,
+
+            "Git": Skill.REGULAR,
+            "Jenkins": Skill.REGULAR,
+            "CircleCI": Skill.REGULAR,
+
+            "Agile": Skill.REGULAR
+          }).map(([key, value]) => 
+            value === Skill.CATEGORY ?
+              <h2>{key}</h2>
+            : value === Skill.STRONG ?
+              <strong>{key}</strong>
+            : <span>{key}</span>
+          )}
         </section>
 
         <IconLink

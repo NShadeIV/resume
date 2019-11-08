@@ -1,16 +1,29 @@
 @import "constants";
 
-.skill {
-  &.high {
+.skills {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  & > * {
+    margin: 0 0.75rem 0 0;
+  }
+
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.65rem;
+
+  h2 {
+    display: block;
+    font-size: 1rem;
+    font-weight: $subtle-weight;
+    font-style: italic;
+    letter-spacing: 0.125rem;
+  }
+
+  strong {
     font-weight: 700;
     font-size: 1.25rem;
-  }
-  &.mid {
-    font-weight: 650;
-    font-size: 1.125rem;
-  }
-  &.low {
-    font-weight: 600;
-    font-size: 1rem;
+    letter-spacing: 0.125rem;
   }
 }
