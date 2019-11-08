@@ -21,7 +21,7 @@ const App = () => {
             "Front-end": Skill.CATEGORY,
             
             "Javascript": Skill.STRONG,
-            "Typescript": Skill.REGULAR,
+            "TypeScript": Skill.REGULAR,
             "React Hooks": Skill.REGULAR,
             "jQuery": Skill.REGULAR,
             "Redux": Skill.REGULAR,
