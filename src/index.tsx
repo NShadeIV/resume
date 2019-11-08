@@ -50,7 +50,7 @@ const App = () => {
 
             "SQL": Skill.STRONG,
             "MSSQL T-SQL": Skill.REGULAR,
-            "Oracle PL/SQ": Skill.REGULAR,
+            "Oracle PL/SQL": Skill.REGULAR,
 
 
             "DevOps": Skill.CATEGORY,
