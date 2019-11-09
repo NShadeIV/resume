@@ -14,9 +14,14 @@ body {
 header {
   align-items: center;
   box-sizing: border-box;
-  max-width: 680px;
+  max-width: calc(680px + 1rem);
   box-sizing: border-box;
   width: 100%;
+
+  padding: 0 0.5rem;
+  @media print {
+    padding: 0;
+  }
   
   &:first-of-type {
     position: fixed;
@@ -50,11 +55,12 @@ main {
   grid-template-columns: 0 1fr auto auto;
   grid-gap: 0.5rem 1rem;
   align-items: baseline;
-  padding: 1rem $gutter-right 1.5rem $gutter-left;
+  padding: 1rem ($gutter-right + 0.5rem) 1.5rem ($gutter-left + 0.5rem);
+  max-width: calc(680px + 1rem);
   @media print {
-    padding-bottom: 0;
+    padding: 1rem $gutter-right 0 $gutter-left;
+    max-width: 680px;
   }
-  max-width: 680px;
   box-sizing: border-box;
 
   section {
