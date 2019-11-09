@@ -1,5 +1,6 @@
 import React from "react";
 import { hydrate, render } from "react-dom";
+import { Helmet } from "react-helmet";
 
 import "./css/index.scss";
 import { Header } from "./ts/Header";
@@ -11,6 +12,31 @@ const App = () => {
   let navLinkRow = 1;
   return (
     <div className="app">
+      
+      <Helmet>
+          <html lang="en"/>
+          <title itemProp="name" lang="en">Fabiny, Andrew N - Resume</title>
+
+          <meta name="description" content="Resume for Andrew N Fabiny - a remote web developer based primarily in Cleveland, OH and the San Francisco Bay area." />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="theme-color" content="#000000" />
+
+          <meta property="og:title" content="Andrew N Fabiny's Resume" />
+          <meta property="og:type" content="profile" />
+          <meta property="og:url" content="http://www.andrewnfabiny.com" />
+          <meta property="og:description" content="Web Developer from Cleveland, OH and the SF Bay." />
+          <meta property="og:locale" content="en_US" />
+          <meta property="profile:first_name" content="Andrew" />
+          <meta property="profile:last_name" content="Fabiny" />
+          <meta property="profile:username" content="andrewnfabiny" />
+          <meta property="og:site_name" content="Andrew N Fabiny" />
+
+          <link rel="canonical" href="https://www.andrewnfabiny.com"/>
+
+          <script src="https://kit.fontawesome.com/daeb3e1490.js" type="text/javascript"></script>
+          <noscript>You need to enable JavaScript to run this app.</noscript>
+      </Helmet>
+
       <Header />
       <Header />
 
