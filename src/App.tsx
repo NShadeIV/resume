@@ -6,7 +6,6 @@ import { IconLink } from "./ts/IconLink";
 import { ResumeHeader } from "./ts/ResumeHeader";
 import { ResumeSection } from "./ts/ResumeSection";
 import { SkillsSection, SkillType } from "./ts/SkillsSection";
-import { Live } from "./ts/util";
 
 const HeadSection = () => (
   <Helmet>
