@@ -34,28 +34,26 @@ const SideBar = () => {
     >
       /andrewnfabiny
     </IconLink>
-    <Live>
-      <IconLink
-        key="email"
-        url="mailto:andrew.n.fabiny@gmail.com"
-        icon="fas fa-envelope"
-        alt="email address"
-        className={["navlink", "row-" + navLinkRow++]}
-      >
-        andrew.n.fabiny
-        <br />
-        @gmail.com
-      </IconLink>
-      <IconLink
-        key="phone"
-        url="tel:+14404970640"
-        icon="fas fa-phone-alt"
-        alt="phone number"
-        className={["navlink", "row-" + navLinkRow++]}
-      >
-        +1.440.497.0640
-      </IconLink>
-    </Live>
+    <IconLink
+      key="email"
+      url="mailto:andrew.n.fabiny@gmail.com"
+      icon="fas fa-envelope"
+      alt="email address"
+      className={["navlink", "row-" + navLinkRow++]}
+    >
+      andrew.n.fabiny
+      <br />
+      @gmail.com
+    </IconLink>
+    <IconLink
+      key="phone"
+      url="tel:+14404970640"
+      icon="fas fa-phone-alt"
+      alt="phone number"
+      className={["navlink", "row-" + navLinkRow++]}
+    >
+      +1.440.497.0640
+    </IconLink>
     <IconLink
       key="location"
       url="https://www.google.com/maps/place/Cleveland,+OH"
