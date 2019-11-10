@@ -3,9 +3,10 @@ import { Helmet } from "react-helmet";
 
 import "./css/index.scss";
 import { IconLink } from "./ts/IconLink";
-import { ResumeHeader } from "./ts/components/ResumeHeader";
-import { ResumeSection } from "./ts/components/ResumeSection";
-import { SkillsSection, SkillType } from "./ts/components/SkillsSection";
+import { ResumeHeader } from "./ts/ResumeHeader";
+import { ResumeSection } from "./ts/ResumeSection";
+import { SkillsSection, SkillType } from "./ts/SkillsSection";
+import { Live } from "./ts/util";
 
 const HeadSection = () => (
   <Helmet>
@@ -32,24 +33,26 @@ const SideBar = () => {
     >
       /andrewnfabiny
     </IconLink>
-    <IconLink
-      url="mailto:andrew.n.fabiny@gmail.com"
-      icon="fas fa-envelope"
-      alt="email address"
-      className={["navlink", "row-" + navLinkRow++]}
-    >
-      andrew.n.fabiny
-      <br />
-      @gmail.com
-    </IconLink>
-    <IconLink
-      url="tel:+14404970640"
-      icon="fas fa-phone-alt"
-      alt="phone number"
-      className={["navlink", "row-" + navLinkRow++]}
-    >
-      +1.440.497.0640
-    </IconLink>
+    <Live>
+      <IconLink
+        url="mailto:andrew.n.fabiny@gmail.com"
+        icon="fas fa-envelope"
+        alt="email address"
+        className={["navlink", "row-" + navLinkRow++]}
+      >
+        andrew.n.fabiny
+        <br />
+        @gmail.com
+      </IconLink>
+      <IconLink
+        url="tel:+14404970640"
+        icon="fas fa-phone-alt"
+        alt="phone number"
+        className={["navlink", "row-" + navLinkRow++]}
+      >
+        +1.440.497.0640
+      </IconLink>
+    </Live>
     <IconLink
       url="https://www.google.com/maps/place/Cleveland,+OH"
       icon="fas fa-map-marker-alt"

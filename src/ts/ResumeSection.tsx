@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
-import { NakedA } from "../NakedA";
-import { IconLink } from "../IconLink";
+import { NakedA } from "./NakedA";
+import { IconLink } from "./IconLink";
 
 export const ResumeSection = ({
   title,
