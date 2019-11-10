@@ -23,40 +23,45 @@ const HeadSection = () => (
 );
 
 const SideBar = () => {
+  let navLinkRow = 1;
   return <>
     <IconLink
+      key="LinkedIn"
       url="https://www.linkedin.com/in/andrewnfabiny/"
       icon="fab fa-linkedin"
       alt="LinkedIn"
-      className={["navlink", "row-1"]}
+      className={["navlink", "row-" + navLinkRow++]}
     >
       /andrewnfabiny
     </IconLink>
     <Live>
       <IconLink
+        key="email"
         url="mailto:andrew.n.fabiny@gmail.com"
         icon="fas fa-envelope"
         alt="email address"
-        className={["navlink", "row-2"]}
+        className={["navlink", "row-" + navLinkRow++]}
       >
         andrew.n.fabiny
         <br />
         @gmail.com
       </IconLink>
       <IconLink
+        key="phone"
         url="tel:+14404970640"
         icon="fas fa-phone-alt"
         alt="phone number"
-        className={["navlink", "row-3"]}
+        className={["navlink", "row-" + navLinkRow++]}
       >
         +1.440.497.0640
       </IconLink>
     </Live>
     <IconLink
+      key="location"
       url="https://www.google.com/maps/place/Cleveland,+OH"
       icon="fas fa-map-marker-alt"
       alt="current location"
-      className={["navlink", "row-4"]}
+      className={["navlink", "row-" + navLinkRow++]}
     >
       Cleveland, OH
     </IconLink>
