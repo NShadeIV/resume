@@ -30,7 +30,6 @@ const SideBar = () => {
   let navLinkRow = 1;
   return <>
     <IconLink
-      key="LinkedIn"
       url="https://www.linkedin.com/in/andrewnfabiny/"
       icon={faLinkedin}
       alt="LinkedIn"
@@ -38,32 +37,43 @@ const SideBar = () => {
     >
       /andrewnfabiny
     </IconLink>
-    { isLive &&
-      <>
-        <IconLink
-          key="email"
-          url="mailto:andrew.n.fabiny@gmail.com"
-          icon={faEnvelope}
-          alt="email address"
-          className={["navlink", "row-" + navLinkRow++]}
-        >
-          andrew.n.fabiny
-          <br />
-          @gmail.com
-        </IconLink>
-        <IconLink
-          key="phone"
-          url="tel:+14404970640"
-          icon={faPhoneAlt}
-          alt="phone number"
-          className={["navlink", "row-" + navLinkRow++]}
-        >
-          +1.440.497.0640
-        </IconLink>
-      </>
-    }
+    {(isLive &&
+      <IconLink
+        url="mailto:andrew.n.fabiny@gmail.com"
+        icon={faEnvelope}
+        alt="email address"
+        className={["navlink", "row-" + navLinkRow++]}
+      >
+        andrew.n.fabiny
+        <br />
+        @gmail.com
+      </IconLink>
+    ) || (
+      <IconLink
+        icon={faEnvelope}
+        alt="email address"
+        className={["navlink", "row-" + navLinkRow++]}
+      >
+        &nbsp;<br/>&nbsp;
+      </IconLink>
+    )}
+    {(isLive &&
+      <IconLink
+        url="tel:+14404970640"
+        icon={faPhoneAlt}
+        alt="phone number"
+        className={["navlink", "row-" + navLinkRow++]}
+      >
+        +1.440.497.0640
+      </IconLink>
+    ) || (
+      <IconLink
+        icon={faPhoneAlt}
+        alt="phone number"
+        className={["navlink", "row-" + navLinkRow++]}
+      />
+    )}
     <IconLink
-      key="location"
       url="https://www.google.com/maps/place/Cleveland,+OH"
       icon={faMapMarkerAlt}
       alt="current location"

@@ -16,7 +16,7 @@ export const IconLink = ({
   icon: IconDefinition;
   alt: string;
   className?: string | Array<string> | object;
-  children: ReactNode;
+  children?: ReactNode;
 }) => {
   return (
     <>
