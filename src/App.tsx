@@ -119,6 +119,8 @@ export const App = () => (
         ["Responsive Design", SkillType.REGULAR],
         
         ["Semantic HTML", SkillType.REGULAR],
+        ["JSP", SkillType.REGULAR],
+        ["ASP.NET", SkillType.REGULAR],
         ["i18n", SkillType.REGULAR],
         ["SEO", SkillType.REGULAR],
         ["GTM", SkillType.REGULAR],
@@ -139,9 +141,7 @@ export const App = () => (
         ["SQL", SkillType.STRONG],
         ["MSSQL T-SQL", SkillType.REGULAR],
         ["Oracle PL/SQL", SkillType.REGULAR],
-
-
-        ["DevOps", SkillType.CATEGORY],
+        
 
         ["Git", SkillType.REGULAR],
         ["Jenkins", SkillType.REGULAR],
