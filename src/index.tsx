@@ -1,5 +1,5 @@
 import React from "react";
-import { hydrate, render } from "react-dom";
+import { render } from "react-dom";
 import {
   BrowserRouter as Router,
   Switch,
@@ -20,7 +20,6 @@ const AppRouting = () => <>
     <meta property="profile:last_name" content="Fabiny" />
     <meta property="profile:username" content="andrewnfabiny" />
     <meta property="og:site_name" content="Andrew N Fabiny" />
-    <script src="https://kit.fontawesome.com/daeb3e1490.js" type="text/javascript"></script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
   </Helmet>
   <Router>
@@ -33,8 +32,12 @@ const AppRouting = () => <>
 </>;
 
 const rootElement = document.getElementById("root");
-if (rootElement && rootElement.hasChildNodes()) {
-  hydrate(<AppRouting />, rootElement);
-} else {
+
+// removing hydrate because we're the DOM is intentionally
+// mismatched.  there's some things we prefer not to prerender
+
+// if (rootElement && rootElement.hasChildNodes()) {
+//   hydrate(<AppRouting />, rootElement);
+// } else {
   render(<AppRouting />, rootElement);
-}
+// }

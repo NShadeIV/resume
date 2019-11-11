@@ -1,12 +1,16 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import { faEnvelope, faPhoneAlt, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons"
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons"
 
 import "./css/index.scss";
+
+import { isLive } from "./ts/util";
 import { IconLink } from "./ts/IconLink";
 import { ResumeHeader } from "./ts/ResumeHeader";
 import { ResumeSection } from "./ts/ResumeSection";
 import { SkillsSection, SkillType } from "./ts/SkillsSection";
-import { isLive } from "./ts/util";
+
 
 const HeadSection = () => (
   <Helmet>
@@ -28,18 +32,18 @@ const SideBar = () => {
     <IconLink
       key="LinkedIn"
       url="https://www.linkedin.com/in/andrewnfabiny/"
-      icon="fab fa-linkedin"
+      icon={faLinkedin}
       alt="LinkedIn"
       className={["navlink", "row-" + navLinkRow++]}
     >
       /andrewnfabiny
     </IconLink>
-    { isLive && 
+    { isLive &&
       <>
         <IconLink
           key="email"
           url="mailto:andrew.n.fabiny@gmail.com"
-          icon="fas fa-envelope"
+          icon={faEnvelope}
           alt="email address"
           className={["navlink", "row-" + navLinkRow++]}
         >
@@ -50,7 +54,7 @@ const SideBar = () => {
         <IconLink
           key="phone"
           url="tel:+14404970640"
-          icon="fas fa-phone-alt"
+          icon={faPhoneAlt}
           alt="phone number"
           className={["navlink", "row-" + navLinkRow++]}
         >
@@ -61,7 +65,7 @@ const SideBar = () => {
     <IconLink
       key="location"
       url="https://www.google.com/maps/place/Cleveland,+OH"
-      icon="fas fa-map-marker-alt"
+      icon={faMapMarkerAlt}
       alt="current location"
       className={["navlink", "row-" + navLinkRow++]}
     >
