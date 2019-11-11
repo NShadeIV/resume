@@ -6,6 +6,7 @@ import { IconLink } from "./ts/IconLink";
 import { ResumeHeader } from "./ts/ResumeHeader";
 import { ResumeSection } from "./ts/ResumeSection";
 import { SkillsSection, SkillType } from "./ts/SkillsSection";
+import { isLive } from "./ts/util";
 
 const HeadSection = () => (
   <Helmet>
@@ -33,26 +34,30 @@ const SideBar = () => {
     >
       /andrewnfabiny
     </IconLink>
-    <IconLink
-      key="email"
-      url="mailto:andrew.n.fabiny@gmail.com"
-      icon="fas fa-envelope"
-      alt="email address"
-      className={["navlink", "row-" + navLinkRow++]}
-    >
-      andrew.n.fabiny
-      <br />
-      @gmail.com
-    </IconLink>
-    <IconLink
-      key="phone"
-      url="tel:+14404970640"
-      icon="fas fa-phone-alt"
-      alt="phone number"
-      className={["navlink", "row-" + navLinkRow++]}
-    >
-      +1.440.497.0640
-    </IconLink>
+    { isLive && 
+      <>
+        <IconLink
+          key="email"
+          url="mailto:andrew.n.fabiny@gmail.com"
+          icon="fas fa-envelope"
+          alt="email address"
+          className={["navlink", "row-" + navLinkRow++]}
+        >
+          andrew.n.fabiny
+          <br />
+          @gmail.com
+        </IconLink>
+        <IconLink
+          key="phone"
+          url="tel:+14404970640"
+          icon="fas fa-phone-alt"
+          alt="phone number"
+          className={["navlink", "row-" + navLinkRow++]}
+        >
+          +1.440.497.0640
+        </IconLink>
+      </>
+    }
     <IconLink
       key="location"
       url="https://www.google.com/maps/place/Cleveland,+OH"
