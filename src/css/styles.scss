@@ -61,6 +61,15 @@ h4 {
 p {
   line-height: 1.5;
   font-weight: $font-weight;
+
+  h4 {
+    display: inline;
+    font-size: 1rem;
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: 0.125rem;
+    margin-right: 0.5rem;
+  }
 }
 
 .label {

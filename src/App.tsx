@@ -84,18 +84,6 @@ const SideBar = () => {
   </>;
 };
 
-const EducationSection = () => <>
-  <div className="label">Edu</div>
-  <ResumeSection
-    title="Computer Science, B.S."
-    subtitle="Rochester Institute of Technology"
-    subUrl="https://www.rit.edu/computing"
-    sidebar="Math, minor"
-    loc="Rochester, NY"
-    locUrl="https://www.google.com/maps/place/Rochester+Institute+of+Technology/@43.0845933,-77.6765332,17z/data=!3m1!4b1!4m5!3m4!1s0x89d14c603a147e55:0xbe7eb31ed5e22c03!8m2!3d43.0845894!4d-77.6743445"
-  />
-</>;
-
 export const App = () => (
   <div className="app">
     <HeadSection/>
@@ -155,6 +143,20 @@ export const App = () => (
 
       <div className="label">Experience</div>
       <ResumeSection
+        title="AztecMC"
+        url="https://www.aztecmc.org"
+        subtitle="Co-Founder"
+        loc="San Francisco, CA"
+        dates="2015-present"
+      >
+        <p>
+          Created, architected, and co-founded AztecMC&mdash;a public Minecraft server.
+          Fosters a staff of 20 in the management of PR, marketing, engineering, player moderation, and driving organization mission and values.
+          Designs and develops plugins in Java and Javascript to support the game server including crons and backing-up data to Amazon Simple Storage Service (Amazon S3).
+        </p>
+      </ResumeSection>
+
+      <ResumeSection
         title="Glassdoor"
         url="https://www.glassdoor.com"
         subtitle="Sr. Software Engineer"
@@ -163,11 +165,18 @@ export const App = () => (
         dates="2014-18"
       >
         <p>
-          User Engagement, Traffic Acquisition, and Internationalization
-          teams. Responsible for Glassdoor awards pages, SEO, building out
-          affiliate / syndication sites, implementation and features for the
-          home page, job alerts and emails, and various other projects across
-          the site and org.
+          <h4>Traffic Acquisition</h4>
+          Lead redesign of home page.
+          Created alternate, dynamic, A/B test-driven site landing page to drive marketing goals.
+          Developed Glassdoor awards pages: Best Places to Work, Top CEOs.
+          Implemented search engine optimization (SEO) strategy including metadata required to utilize Google features still in beta.
+          Built affiliate syndication job search sites hosted on Fortune, Time, and Bloomberg and job search widgets hosted on many other sites.
+        </p>
+        <p>
+          <h4>User Engagement</h4>
+          Implemented Glassdoor's in-browser push notification framework.
+          Drove early design and development of Glassdoor's analytics and marketing plugin strategy using Google Tag Manager (GTM).
+          Fullstack email development and testing for Glassdoor job alerts and other data-driven dynamic email campaigns.
         </p>
       </ResumeSection>
 
@@ -180,12 +189,10 @@ export const App = () => (
         dates="2008-14"
       >
         <p>
-          Developed new insurance quoting apps in HTML5, .NET MVC4, and Flash.
-          Championed the use of CSS preprocessors when they were a burgeoning
-          tech, created Progressive's first SASS code organization standards,
-          and trained teams in modern web technology best-practices. Designed
-          and lead development on critical databases, error handling systems,
-          and services.
+          <h4>Auto Quoting</h4>
+          Developed new insurance quoting apps using HTML5, C# / .NET MVC, and Actionscript / Flash.
+          Championed the use of CSS preprocessors when they were a burgeoning technology, creating Progressive's first SASS code organization standards, and trained teams in modern web technology best-practices.
+          Designed and lead development on critical services: session databases, error handling systems, and long-term storage webservices.
         </p>
       </ResumeSection>
 
@@ -198,17 +205,25 @@ export const App = () => (
         dates="2005-08"
       >
         <p>
-          Developed customer relationship management (CRM) web applications,
-          and enhancements to proprietary CRM databases and thick-client
-          applications. Independently developed a Blackberry (J2ME)
-          application and supporting SOAP web services for executive contact
-          synchronization.
+          Developed customer relationship management (CRM) web applications and enhancements using Java, PL/SQL, and a proprietary language similar to Visual Basic.
+          Independently developed a Blackberry mobile application (J2ME) and supporting SOAP web services for executive contact synchronization.
         </p>
       </ResumeSection>
 
       <hr />
 
-      <EducationSection/>
+      <div className="label">Edu</div>
+      <ResumeSection
+        title="Computer Science, B.S."
+        subtitle="Rochester Institute of Technology"
+        subUrl="https://www.rit.edu/computing"
+        loc="Rochester, NY"
+        locUrl="https://www.google.com/maps/place/Rochester+Institute+of+Technology/@43.0845933,-77.6765332,17z/data=!3m1!4b1!4m5!3m4!1s0x89d14c603a147e55:0xbe7eb31ed5e22c03!8m2!3d43.0845894!4d-77.6743445"
+      >
+        <p>
+          Minors in Mathematics and Literary Studies, and a concentration in computer graphics.
+        </p>
+      </ResumeSection>
     </main>
   </div>
 );

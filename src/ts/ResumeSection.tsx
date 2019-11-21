@@ -23,7 +23,7 @@ export const ResumeSection = ({
   tertitle?: string;
   sidebar?: string;
   loc: string;
-  locUrl: string;
+  locUrl?: string;
   dates?: string;
   children?: ReactNode;
 }) => {
