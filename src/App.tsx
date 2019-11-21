@@ -120,6 +120,7 @@ export const App = () => (
         ["Back-end", SkillType.CATEGORY],
 
         ["Java", SkillType.STRONG],
+        ["C#", SkillType.STRONG],
         ["PHP", SkillType.REGULAR],
 
         ["REST", SkillType.REGULAR],
@@ -127,15 +128,15 @@ export const App = () => (
         ["RabbitMQ", SkillType.REGULAR],
 
         ["SQL", SkillType.STRONG],
-        ["MSSQL T-SQL", SkillType.REGULAR],
-        ["Oracle PL/SQL", SkillType.REGULAR],
-        
+
+
+        ["DevOps", SkillType.CATEGORY],
 
         ["Git", SkillType.REGULAR],
         ["Jenkins", SkillType.REGULAR],
         ["CircleCI", SkillType.REGULAR],
 
-        ["Agile", SkillType.REGULAR]
+        ["Agile Methodology", SkillType.REGULAR]
       ]} />
       <SideBar />
 
