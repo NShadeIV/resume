@@ -153,6 +153,7 @@ export const App = () => (
         <p>
           Created, architected, and co-founded AztecMC&mdash;a public Minecraft server.
           Fosters a staff of 20 in the management of PR, marketing, engineering, player moderation, and driving organization mission and values.
+          Moderates a player base of about 20 daily international users (~160 weekly, ~560 monthly).
           Designs and develops plugins in Java and Javascript to support the game server including crons and backing-up data to Amazon Simple Storage Service (Amazon S3).
         </p>
       </ResumeSection>
